@@ -1,10 +1,18 @@
+apply plugin: 'application'
+apply plugin: 'checkstyle'
 apply plugin: 'java'
+apply plugin: 'groovy'
 
 repositories {
     jcenter()
 }
 
+mainClassName = "tech.letscode.rpsgame.RpsGame"
+
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.25'
-    testCompile 'junit:junit:4.12'
+    compileOnly 'org.projectlombok:lombok:1.16.+'
+    compileOnly 'com.google.code.findbugs:jsr305:3.+'
+
+    testCompile 'org.codehaus.groovy:groovy-all:2.4.13'
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
 }
