@@ -3,7 +3,6 @@ package tech.letscode.rpsgame.domain.model;
 import tech.letscode.rpsgame.shared.Args;
 
 import javax.annotation.Nonnull;
-import java.util.Optional;
 
 /**
  * Oleg Pavlov <oleg.pavlov@aol.com>
@@ -38,17 +37,24 @@ public enum Shape
                 }
             };
 
+    /**
+     * Checks that the current shape can beat the other shape.
+     *
+     * @param otherShape the shape of the opponent
+     * @return {@code true} if the other shape was beaten by the current shape, otherwise - {@code false}
+     */
     public abstract boolean beats(@Nonnull Shape otherShape);
 
-    public static Optional<Shape> ofString(@Nonnull String shape)
+    /**
+     * Converts the string represented shape to its enum value
+     *
+     * @param shape string represented shape
+     * @return the enum constant
+     * @throws IllegalArgumentException if the passed shape is null or it can't be matched.
+     */
+    public static Shape ofString(@Nonnull String shape)
     {
         Args.notNull(shape, "shape is required");
-        try
-        {
-            return Optional.of(valueOf(shape.toUpperCase()));
-        } catch (IllegalArgumentException e)
-        {
-            return Optional.empty();
-        }
+        return valueOf(shape.toUpperCase());
     }
 }

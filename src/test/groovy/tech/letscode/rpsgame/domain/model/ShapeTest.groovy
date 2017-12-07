@@ -43,7 +43,7 @@ class ShapeTest extends Specification
     def "should create shape from string"()
     {
         expect:
-        Shape.ofString(shapeAsString).orElse(null) == result
+        Shape.ofString(shapeAsString) == result
 
         where:
         shapeAsString | result
@@ -51,6 +51,23 @@ class ShapeTest extends Specification
         "scissor"     | Shape.SCISSOR
         "paper"       | Shape.PAPER
         "RoCk"        | Shape.ROCK
-        "rock1"       | null
+    }
+
+    def "should throw IllegalArgumentException if null is passed"()
+    {
+        when:
+        Shape.ofString(null)
+
+        then:
+        thrown IllegalArgumentException
+    }
+
+    def "should throw IllegalArgumentException if the string cannot be passed to the enum value"()
+    {
+        when:
+        Shape.ofString("wrong_shape")
+
+        then:
+        thrown IllegalArgumentException
     }
 }
