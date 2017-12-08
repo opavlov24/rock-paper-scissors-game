@@ -11,7 +11,7 @@ import tech.letscode.rpsgame.domain.model.player.Player
  */
 class RpsApplicationTest extends Specification
 {
-    def "should throw IllegalArgumentException if choiceOfHuman is null"()
+    def "should throw IllegalArgumentException if choiceOfHuman is null (humanPlaysAgainstComputer)"()
     {
         when:
         new RpsApplication().humanPlaysAgainstComputer(null, Mock(HumanPlaysAgainstComputerCallback))
@@ -20,7 +20,7 @@ class RpsApplicationTest extends Specification
         thrown IllegalArgumentException
     }
 
-    def "should throw IllegalArgumentException if the passed callback is null"()
+    def "should throw IllegalArgumentException if the passed callback is null (humanPlaysAgainstComputer)"()
     {
         when:
         new RpsApplication().humanPlaysAgainstComputer("rock", null)
@@ -72,6 +72,60 @@ class RpsApplicationTest extends Specification
         0 * callback.personWon()
         0 * callback.computerWon()
         1 * callback.isTied()
+    }
+
+    def "should throw IllegalArgumentException if callback is null (ComputerPlaysAgainstComputerCallback)"()
+    {
+        when:
+        new RpsApplication().computerPlaysAgainstComputer(null)
+
+        then:
+        thrown IllegalArgumentException
+    }
+
+    def "should call firstComputerPlayerWon if firstPlayer is won"()
+    {
+        given:
+        def application = new RpsApplication(createGameFactoryThatReturnGame(new GameWhereFirstPlayerAlwaysWin()))
+        def callback = Mock(ComputerPlaysAgainstComputerCallback)
+
+        when:
+        application.computerPlaysAgainstComputer(callback)
+
+        then:
+        1 * callback.firstComputerPlayerWon()
+        0 * callback.secondComputerPlayerWon()
+    }
+
+    def "should call secondComputerPlayerWon if secondPlayer is won"()
+    {
+        given:
+        def application = new RpsApplication(createGameFactoryThatReturnGame(new GameWhereSecondPlayerAlwaysWin()))
+        def callback = Mock(ComputerPlaysAgainstComputerCallback)
+
+        when:
+        application.computerPlaysAgainstComputer(callback)
+
+        then:
+        0 * callback.firstComputerPlayerWon()
+        1 * callback.secondComputerPlayerWon()
+    }
+
+    def "should repeat game while someone win"()
+    {
+        given:
+        def gameFactory = Mock(GameFactory) {
+            create(_ as Player, _ as Player) >>> [new GameWhereAlwaysNoOneWin(), new GameWhereFirstPlayerAlwaysWin()]
+        }
+        def application = new RpsApplication(gameFactory)
+        def callback = Mock(ComputerPlaysAgainstComputerCallback)
+
+        when:
+        application.computerPlaysAgainstComputer(callback)
+
+        then:
+        1 * callback.firstComputerPlayerWon()
+        0 * callback.secondComputerPlayerWon()
     }
 
     def createGameFactoryThatReturnGame(Game game)

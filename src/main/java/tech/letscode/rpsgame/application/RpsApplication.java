@@ -71,4 +71,48 @@ public class RpsApplication
             }
         });
     }
+
+    /**
+     * Models the scenario when the computer plays against the computer. You must pass only
+     * {@link ComputerPlaysAgainstComputerCallback} to be notified about the result.
+     *
+     * @param callback callback to notify a client about the result
+     * @throws IllegalArgumentException if the passed callback is null
+     */
+    public void computerPlaysAgainstComputer(@Nonnull ComputerPlaysAgainstComputerCallback callback)
+    {
+        Args.notNull(callback, "callback is required");
+
+        final boolean[] someoneWon = {false};
+        do //Maybe I should extract it to domain model.
+        {
+            Player firstComputerPlayer = new ComputerPlayer();
+            Player secondComputerPlayer = new ComputerPlayer();
+
+            Game game = this.gameFactory.create(firstComputerPlayer, secondComputerPlayer);
+            game.play(new Outcome()
+            {
+                @Override
+                public void firstPlayerWon()
+                {
+                    someoneWon[0] = true;
+                    callback.firstComputerPlayerWon();
+                }
+
+                @Override
+                public void secondPlayerWon()
+                {
+                    someoneWon[0] = true;
+                    callback.secondComputerPlayerWon();
+                }
+
+                @Override
+                public void isTied()
+                {
+                    //nop
+                }
+            });
+
+        } while (!someoneWon[0]);
+    }
 }
