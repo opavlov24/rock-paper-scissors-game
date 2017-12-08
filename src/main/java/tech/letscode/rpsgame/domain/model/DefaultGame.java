@@ -13,10 +13,9 @@ import javax.annotation.Nonnull;
  * the winner will be computed.
  * For example. If the first player decided to play rock and the second player decided to play paper then
  * the second player is won, because paper covers rock.
- * <p>
+ *
  * Full description of the game you can find here https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors
- * <p>
- * <p>
+ *
  * Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public class DefaultGame implements Game

@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
 
 /**
  * A factory class to create an instance object of {@link DefaultGame}
- * <p>
+ *
  * Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public class DefaultGameFactory implements GameFactory

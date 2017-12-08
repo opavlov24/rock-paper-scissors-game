@@ -12,7 +12,7 @@ public interface Game
     /**
      * Runs the game.
      *
-     * @param outcome callback to notify a client about the result. Only one of the methods will be called.
+     * @param outcome callback to notify a client about the result.
      */
     void play(@Nonnull Outcome outcome);
 }
