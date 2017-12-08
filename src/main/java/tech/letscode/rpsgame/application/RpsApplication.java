@@ -31,13 +31,13 @@ public class RpsApplication
     }
 
     /**
-     * Models the scenario when a human plays with the computer. You must pass {@param choiceOfPerson} that can be
+     * Models the scenario when a human plays against the computer. You must pass {@param choiceOfHuman} that can be
      * chosen from the next values (Rock, Scissors or Paper) and callback, to be notified about the result.
      * Only one method of {@link HumanPlaysAgainstComputerCallback} will be called.
      *
      * @param choiceOfHuman the shape that is chosen by a human.
      * @param callback      callback to notify a client about the result.
-     * @throws IllegalArgumentException if {@param choiceOfPerson} is null or has an invalid format,
+     * @throws IllegalArgumentException if {@param choiceOfHuman} is null or has an invalid format,
      *                                  or (and) callback is null.
      */
     public void humanPlaysAgainstComputer(@Nonnull String choiceOfHuman,
@@ -55,7 +55,6 @@ public class RpsApplication
             @Override
             public void firstPlayerWon()
             {
-
                 callback.personWon();
             }
 
