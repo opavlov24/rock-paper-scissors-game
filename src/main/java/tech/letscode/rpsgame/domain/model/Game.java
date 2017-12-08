@@ -1,12 +1,13 @@
 package tech.letscode.rpsgame.domain.model;
 
+import tech.letscode.rpsgame.domain.model.player.Player;
 import tech.letscode.rpsgame.shared.Args;
 
 import javax.annotation.Nonnull;
 
 /**
- * This class models Rock-Paper-Scissor game. To play this game you need to pass two players and call {@link Game#play(Outcome)}
- * method and pass there {@link Outcome} callback to be notified about the result.
+ * This class models Rock-Paper-Scissor game. To play this game you need to pass two players
+ * and call {@link Game#play(Outcome)} method and pass there {@link Outcome} callback to be notified about the result.
  * Mechanics. Each of the players is asked to choose one of the shapes (Rock, Paper, Scissor) and after that,
  * the winner will be computed.
  * For example. If the first player decided to play rock and the second player decided to play paper then

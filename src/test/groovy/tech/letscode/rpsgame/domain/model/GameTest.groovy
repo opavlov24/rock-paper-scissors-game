@@ -1,6 +1,7 @@
 package tech.letscode.rpsgame.domain.model
 
 import spock.lang.Specification
+import tech.letscode.rpsgame.domain.model.player.Player
 
 /**
  * Oleg Pavlov <oleg.pavlov@aol.com>
