@@ -6,7 +6,7 @@ import tech.letscode.rpsgame.domain.model.player.Player
 /**
  * Oleg Pavlov <oleg.pavlov@aol.com>
  */
-class GameTest extends Specification
+class DefaultGameTest extends Specification
 {
     def "should call satisfied callback method"()
     {
@@ -17,7 +17,7 @@ class GameTest extends Specification
         def secondPlayer = Mock(Player) {
             choose() >> secondPlayerChoice
         }
-        def game = new Game(firstPlayer, secondPlayer)
+        def game = new DefaultGame(firstPlayer, secondPlayer)
         def outcome = Mock(Outcome)
 
         when:
@@ -45,7 +45,7 @@ class GameTest extends Specification
         def secondPlayer = Mock(Player) {
             choose() >> Shape.ROCK
         }
-        def game = new Game(firstPlayer, secondPlayer)
+        def game = new DefaultGame(firstPlayer, secondPlayer)
         def outcome = Mock(Outcome)
 
         when:
@@ -62,7 +62,7 @@ class GameTest extends Specification
             choose() >> Shape.ROCK
         }
         def secondPlayer = Mock(Player)
-        def game = new Game(firstPlayer, secondPlayer)
+        def game = new DefaultGame(firstPlayer, secondPlayer)
         def outcome = Mock(Outcome)
 
         when:
@@ -75,7 +75,7 @@ class GameTest extends Specification
     def "should throw IllegalArgumentException if the firstPlayer wasn't passed to the constructor"()
     {
         when:
-        new Game(null, Mock(Player))
+        new DefaultGame(null, Mock(Player))
 
         then:
         thrown IllegalArgumentException
@@ -84,7 +84,7 @@ class GameTest extends Specification
     def "should throw IllegalArgumentException if the secondPlayer wasn't passed to the constructor"()
     {
         when:
-        new Game(Mock(Player), null)
+        new DefaultGame(Mock(Player), null)
 
         then:
         thrown IllegalArgumentException
