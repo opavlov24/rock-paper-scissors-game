@@ -75,7 +75,7 @@ public class GameConsole
                 tell("Ok. Choose the shape (or enter (b) to back to the previous menu):");
                 tell("\t(1) - Rock");
                 tell("\t(2) - Paper");
-                answer = ask("\t(3) - Scissor", scanner);
+                answer = ask("\t(3) - Scissors", scanner);
                 switch (answer)
                 {
                     case "1":
@@ -85,7 +85,7 @@ public class GameConsole
                         humanChoice = "Paper";
                         break;
                     case "3":
-                        humanChoice = "Scissor";
+                        humanChoice = "Scissors";
                         break;
                     case "b":
                         return;

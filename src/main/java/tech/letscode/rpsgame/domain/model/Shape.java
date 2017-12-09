@@ -15,7 +15,7 @@ public enum Shape
                 public boolean beats(@Nonnull Shape otherShape)
                 {
                     Args.notNull(otherShape, "otherShape is required");
-                    return otherShape == SCISSOR;
+                    return otherShape == SCISSORS;
                 }
             },
     PAPER
@@ -27,7 +27,7 @@ public enum Shape
                     return otherShape == ROCK;
                 }
             },
-    SCISSOR
+    SCISSORS
             {
                 @Override
                 public boolean beats(@Nonnull Shape otherShape)

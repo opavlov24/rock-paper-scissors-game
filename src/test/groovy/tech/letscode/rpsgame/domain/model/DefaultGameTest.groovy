@@ -33,7 +33,7 @@ class DefaultGameTest extends Specification
 
         where:
         firstPlayerChoice | secondPlayerChoice | numFirstPlayerWon | numSecondPlayerWon | numIsTied
-        Shape.ROCK        | Shape.SCISSOR      | 1                 | 0                  | 0
+        Shape.ROCK        | Shape.SCISSORS     | 1                 | 0                  | 0
         Shape.ROCK        | Shape.PAPER        | 0                 | 1                  | 0
         Shape.ROCK        | Shape.ROCK         | 0                 | 0                  | 1
     }

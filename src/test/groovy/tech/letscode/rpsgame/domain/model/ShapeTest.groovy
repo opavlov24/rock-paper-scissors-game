@@ -15,16 +15,16 @@ class ShapeTest extends Specification
         firstShape.beats(secondShape) == firstShapeBeatsSecondShape
 
         where:
-        firstShape    | secondShape   | firstShapeBeatsSecondShape
-        Shape.ROCK    | Shape.SCISSOR | true
-        Shape.ROCK    | Shape.PAPER   | false
-        Shape.ROCK    | Shape.ROCK    | false
-        Shape.SCISSOR | Shape.PAPER   | true
-        Shape.SCISSOR | Shape.ROCK    | false
-        Shape.SCISSOR | Shape.SCISSOR | false
-        Shape.PAPER   | Shape.ROCK    | true
-        Shape.PAPER   | Shape.SCISSOR | false
-        Shape.PAPER   | Shape.PAPER   | false
+        firstShape     | secondShape    | firstShapeBeatsSecondShape
+        Shape.ROCK     | Shape.SCISSORS | true
+        Shape.ROCK     | Shape.PAPER    | false
+        Shape.ROCK     | Shape.ROCK     | false
+        Shape.SCISSORS | Shape.PAPER    | true
+        Shape.SCISSORS | Shape.ROCK     | false
+        Shape.SCISSORS | Shape.SCISSORS | false
+        Shape.PAPER    | Shape.ROCK     | true
+        Shape.PAPER    | Shape.SCISSORS | false
+        Shape.PAPER    | Shape.PAPER    | false
     }
 
     @Unroll
@@ -37,7 +37,7 @@ class ShapeTest extends Specification
         thrown IllegalArgumentException
 
         where:
-        shape << [Shape.ROCK, Shape.SCISSOR, Shape.PAPER]
+        shape << [Shape.ROCK, Shape.SCISSORS, Shape.PAPER]
     }
 
     def "should create shape from string"()
@@ -48,7 +48,7 @@ class ShapeTest extends Specification
         where:
         shapeAsString | result
         "rock"        | Shape.ROCK
-        "scissor"     | Shape.SCISSOR
+        "scissors"    | Shape.SCISSORS
         "paper"       | Shape.PAPER
         "RoCk"        | Shape.ROCK
     }
