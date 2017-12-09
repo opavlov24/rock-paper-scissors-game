@@ -53,15 +53,15 @@ public class RpsApplication
         game.play(new Outcome()
         {
             @Override
-            public void firstPlayerWon()
+            public void firstPlayerWin()
             {
-                callback.personWon();
+                callback.personWin();
             }
 
             @Override
-            public void secondPlayerWon()
+            public void secondPlayerWin()
             {
-                callback.computerWon();
+                callback.computerWin();
             }
 
             @Override
@@ -93,17 +93,17 @@ public class RpsApplication
             game.play(new Outcome()
             {
                 @Override
-                public void firstPlayerWon()
+                public void firstPlayerWin()
                 {
                     someoneWon[0] = true;
-                    callback.firstComputerPlayerWon();
+                    callback.firstComputerPlayerWin();
                 }
 
                 @Override
-                public void secondPlayerWon()
+                public void secondPlayerWin()
                 {
                     someoneWon[0] = true;
-                    callback.secondComputerPlayerWon();
+                    callback.secondComputerPlayerWin();
                 }
 
                 @Override

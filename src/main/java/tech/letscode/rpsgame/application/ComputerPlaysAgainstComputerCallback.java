@@ -5,7 +5,7 @@ package tech.letscode.rpsgame.application;
  */
 public interface ComputerPlaysAgainstComputerCallback
 {
-    void firstComputerPlayerWon();
+    void firstComputerPlayerWin();
 
-    void secondComputerPlayerWon();
+    void secondComputerPlayerWin();
 }

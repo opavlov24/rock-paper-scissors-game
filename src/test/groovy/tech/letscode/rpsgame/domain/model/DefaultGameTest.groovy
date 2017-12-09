@@ -26,8 +26,8 @@ class DefaultGameTest extends Specification
         then:
         with(outcome)
                 {
-                    numFirstPlayerWon * firstPlayerWon()
-                    numSecondPlayerWon * secondPlayerWon()
+                    numFirstPlayerWon * firstPlayerWin()
+                    numSecondPlayerWon * secondPlayerWin()
                     numIsTied * isTied()
                 }
 

@@ -5,9 +5,9 @@ package tech.letscode.rpsgame.domain.model;
  */
 public interface Outcome
 {
-    void firstPlayerWon();
+    void firstPlayerWin();
 
-    void secondPlayerWon();
+    void secondPlayerWin();
 
     void isTied();
 }

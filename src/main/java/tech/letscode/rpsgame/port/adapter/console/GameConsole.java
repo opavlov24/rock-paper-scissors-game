@@ -97,13 +97,13 @@ public class GameConsole
             this.application.humanPlaysAgainstComputer(humanChoice, new HumanPlaysAgainstComputerCallback()
             {
                 @Override
-                public void personWon()
+                public void personWin()
                 {
                     tell("You win!");
                 }
 
                 @Override
-                public void computerWon()
+                public void computerWin()
                 {
                     tell("You loose!");
                 }
@@ -125,13 +125,13 @@ public class GameConsole
             this.application.computerPlaysAgainstComputer(new ComputerPlaysAgainstComputerCallback()
             {
                 @Override
-                public void firstComputerPlayerWon()
+                public void firstComputerPlayerWin()
                 {
                     tell("Computer player - 1 is win");
                 }
 
                 @Override
-                public void secondComputerPlayerWon()
+                public void secondComputerPlayerWin()
                 {
                     tell("Computer player - 2 is win");
                 }

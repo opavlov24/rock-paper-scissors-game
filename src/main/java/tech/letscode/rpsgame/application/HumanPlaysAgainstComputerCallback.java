@@ -5,9 +5,9 @@ package tech.letscode.rpsgame.application;
  */
 public interface HumanPlaysAgainstComputerCallback
 {
-    void personWon();
+    void personWin();
 
-    void computerWon();
+    void computerWin();
 
     void isTied();
 }
