@@ -17,7 +17,7 @@ class GameConsoleTest extends Specification
         given:
         def answers = "1\nn\nq\n"
         def application = Mock(RpsApplication)
-        def console = new GameConsole(System.out, new ByteArrayInputStream(answers.getBytes()), application)
+        def console = new GameConsole(nullPrintStream(), new ByteArrayInputStream(answers.getBytes()), application)
 
         when:
         console.run()
@@ -32,12 +32,23 @@ class GameConsoleTest extends Specification
         given:
         def answers = "2\n1\nn\nq".getBytes()
         def application = Mock(RpsApplication)
-        def console = new GameConsole(System.out, new ByteArrayInputStream(answers), application)
+        def console = new GameConsole(nullPrintStream(), new ByteArrayInputStream(answers), application)
 
         when:
         console.run()
 
         then:
         1 * application.humanPlaysAgainstComputer(_, _)
+    }
+
+    def nullPrintStream()
+    {
+        new PrintStream(new OutputStream() {
+            @Override
+            void write(int b) throws IOException
+            {
+                //nop
+            }
+        })
     }
 }
