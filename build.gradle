@@ -15,4 +15,5 @@ dependencies {
 
     testCompile 'org.codehaus.groovy:groovy-all:2.4.13'
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testCompile 'cglib:cglib-nodep:3.2.5'
 }
