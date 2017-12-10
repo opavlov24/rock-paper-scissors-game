@@ -1,3 +1,5 @@
+# Rock-Paper-Scissors [![Build Status](https://travis-ci.org/opavlov24/image-reducer.svg?branch=master)](https://travis-ci.org/opavlov24/image-reducer)
+
 ## Description
 
 This is a simple implementation of Rock-Paper-Scissors game with a simple console UI. More about this game you can read [here](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors).
