@@ -2,6 +2,7 @@ package tech.letscode.rpsgame.port.adapter.console
 
 import spock.lang.Specification
 import spock.lang.Timeout
+import spock.lang.Unroll
 import tech.letscode.rpsgame.application.RpsApplication
 
 import java.util.concurrent.TimeUnit
@@ -26,19 +27,25 @@ class GameConsoleTest extends Specification
         1 * application.computerPlaysAgainstComputer(_)
     }
 
+    @Unroll
     @Timeout(value = 1, unit = TimeUnit.SECONDS)
-    def "should run humanVsComputerVersion"()
+    def "should run humanVsComputer version and the human choose #shape"()
     {
         given:
-        def answers = "2\n1\nn\nq".getBytes()
         def application = Mock(RpsApplication)
-        def console = new GameConsole(nullPrintStream(), new ByteArrayInputStream(answers), application)
+        def console = new GameConsole(nullPrintStream(), new ByteArrayInputStream(answers.getBytes()), application)
 
         when:
         console.run()
 
         then:
-        1 * application.humanPlaysAgainstComputer(_, _)
+        1 * application.humanPlaysAgainstComputer(choiceOfHuman, _)
+
+        where:
+        answers        | choiceOfHuman
+        "2\n1\nn\nq\n" | "Rock"
+        "2\n2\nn\nq\n" | "Paper"
+        "2\n3\nn\nq\n" | "Scissors"
     }
 
     def nullPrintStream()
