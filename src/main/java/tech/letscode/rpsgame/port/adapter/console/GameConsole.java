@@ -11,7 +11,9 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
- * Oleg Pavlov <oleg.pavlov@aol.com>
+ * Simple console UI for Rock-Paper-Scissors game.
+ *
+ * @author Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public class GameConsole
 {
@@ -57,11 +59,6 @@ public class GameConsole
                 }
             } while (dontWantToExit(answer));
         }
-    }
-
-    private boolean dontWantToExit(String answer)
-    {
-        return !"q".equals(answer);
     }
 
     private void playHumanVsComputer(Scanner scanner)
@@ -153,6 +150,12 @@ public class GameConsole
     private boolean doYouWantToPlayAgain(Scanner scanner)
     {
         return "y".equals(ask("Do you want to try again? (Y/N)", scanner));
+    }
+
+    private boolean dontWantToExit(String answer)
+    {
+
+        return !"q".equals(answer);
     }
 
     private void tell(String message)

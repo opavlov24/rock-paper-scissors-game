@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 /**
  * A factory class to create an instance object of {@link DefaultGame}
  *
- * Oleg Pavlov <oleg.pavlov@aol.com>
+ * @author Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public class DefaultGameFactory implements GameFactory
 {
@@ -17,7 +17,7 @@ public class DefaultGameFactory implements GameFactory
      * @param firstPlayer  the first player
      * @param secondPlayer the second player
      * @return An instance of {@link DefaultGame}
-     * @throws IllegalArgumentException if firstPlayer or (and) secondPlayer is null
+     * @throws IllegalArgumentException if one/both arguments is/are null
      */
     @Override
     public Game create(@Nonnull Player firstPlayer, @Nonnull Player secondPlayer)

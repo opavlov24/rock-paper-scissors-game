@@ -5,7 +5,7 @@ import tech.letscode.rpsgame.domain.model.Shape;
 import java.util.Random;
 
 /**
- * Represents a model of the computer player. The choice is generated automatically.
+ * Represents the model of the computer player. The choice is generated automatically.
  * <p>
  * Oleg Pavlov <oleg.pavlov@aol.com>
  */

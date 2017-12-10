@@ -5,7 +5,7 @@ import javax.annotation.Nonnull;
 /**
  * Represents the interface of rock-paper-scissor game.
  *
- * Oleg Pavlov <oleg.pavlov@aol.com>
+ * @author Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public interface Game
 {

@@ -31,14 +31,13 @@ public class RpsApplication
     }
 
     /**
-     * Models the scenario when a human plays against the computer. You must pass {@param choiceOfHuman} that can be
-     * chosen from the next values (Rock, Scissors or Paper) and callback, to be notified about the result.
+     * Models the scenario when a human plays against the computer. You must pass the shape that can be
+     * chosen from the next values: Rock, Scissors or Paper and callback to be notified about the result.
      * Only one method of {@link HumanPlaysAgainstComputerCallback} will be called.
      *
-     * @param choiceOfHuman the shape that is chosen by a human.
+     * @param choiceOfHuman the shape that is chosen by the human.
      * @param callback      callback to notify a client about the result.
-     * @throws IllegalArgumentException if {@param choiceOfHuman} is null or has an invalid format,
-     *                                  or (and) callback is null.
+     * @throws IllegalArgumentException if one of the args is null or has invalid format.
      */
     public void humanPlaysAgainstComputer(@Nonnull String choiceOfHuman,
                                           @Nonnull HumanPlaysAgainstComputerCallback callback)
@@ -77,15 +76,15 @@ public class RpsApplication
      * Models the scenario when the computer plays against the computer. You must pass only
      * {@link ComputerPlaysAgainstComputerCallback} to be notified about the result.
      *
-     * @param callback callback to notify a client about the result
-     * @throws IllegalArgumentException if the passed callback is null
+     * @param callback callback to notify a client about the result.
+     * @throws IllegalArgumentException if the passed arg is null.
      */
     public void computerPlaysAgainstComputer(@Nonnull ComputerPlaysAgainstComputerCallback callback)
     {
         Args.notNull(callback, "callback is required");
 
         final boolean[] someoneWon = {false};
-        do //Maybe I should extract it to domain model.
+        do //Maybe, it should be extracted to the domain model.
         {
             Player firstComputerPlayer = new ComputerPlayer();
             Player secondComputerPlayer = new ComputerPlayer();

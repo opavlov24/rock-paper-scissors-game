@@ -6,7 +6,7 @@ import tech.letscode.rpsgame.shared.Args;
 import javax.annotation.Nonnull;
 
 /**
- * Represents a model of the human player. The choice is predefined and must be passed through the constructor.
+ * Represents the model of the human player. The choice is predefined and must be passed through the constructor.
  * <p>
  * Oleg Pavlov <oleg.pavlov@aol.com>
  */

@@ -8,15 +8,15 @@ import javax.annotation.Nonnull;
 /**
  * {@link DefaultGame} models rock-paper-scissor game. To play this game you need to pass two players
  * and call {@link DefaultGame#play(Outcome)} method and pass there {@link Outcome} callback to be notified about
- * the result.
+ * the result.<br>
  * Mechanics: Each of the players is asked to choose one of the shapes (Rock, Paper, Scissor) and after that,
- * the winner will be computed.
- * For example. If the first player decided to play rock and the second player decided to play paper then
- * the second player is won, because paper covers rock.
+ * the winner is computed.<br>
+ * Example: If the first player decides to play rock and the second player decides to play paper then
+ * the second player wins, because paper covers rock.
  *
- * Full description of the game you can find here https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors
+ * @see <a href="https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors">Full description of the game</a>
  *
- * Oleg Pavlov <oleg.pavlov@aol.com>
+ * @author Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public class DefaultGame implements Game
 {
@@ -33,7 +33,7 @@ public class DefaultGame implements Game
     /**
      * Runs the game.
      *
-     * @param outcome callback to notify a client about the result. Only one of the methods will be called.
+     * @param outcome callback to notify a client about the result. Only one of the methods is called.
      * @throws IllegalArgumentException if outcome is null or {@link Player#choose()} returns null.
      */
     @Override

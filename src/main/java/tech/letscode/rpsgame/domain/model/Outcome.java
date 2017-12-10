@@ -1,7 +1,9 @@
 package tech.letscode.rpsgame.domain.model;
 
 /**
- * Oleg Pavlov <oleg.pavlov@aol.com>
+ * A callback interface for client notifications about the result.
+ *
+ * @author Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public interface Outcome
 {

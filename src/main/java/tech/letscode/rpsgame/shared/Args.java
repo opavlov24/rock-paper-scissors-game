@@ -1,7 +1,9 @@
 package tech.letscode.rpsgame.shared;
 
 /**
- * Oleg Pavlov <oleg.pavlov@aol.com>
+ * Some utils to validate input arguments.
+ *
+ * @author Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public class Args
 {

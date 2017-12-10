@@ -1,7 +1,9 @@
 package tech.letscode.rpsgame.application;
 
 /**
- * Oleg Pavlov <oleg.pavlov@aol.com>
+ * A callback interface to notify clients about the result in ComputeVsComputer version.
+ *
+ * @author Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public interface ComputerPlaysAgainstComputerCallback
 {

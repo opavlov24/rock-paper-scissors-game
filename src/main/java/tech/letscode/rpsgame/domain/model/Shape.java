@@ -5,7 +5,9 @@ import tech.letscode.rpsgame.shared.Args;
 import javax.annotation.Nonnull;
 
 /**
- * Oleg Pavlov <oleg.pavlov@aol.com>
+ * Represents the model of the possible choices in Rock-Paper-Scissors game.
+ *
+ * @author Oleg Pavlov <oleg.pavlov@aol.com>
  */
 public enum Shape
 {
@@ -40,16 +42,16 @@ public enum Shape
     /**
      * Checks that the current shape can beat the other shape.
      *
-     * @param otherShape the shape of the opponent
-     * @return {@code true} if the other shape was beaten by the current shape, otherwise - {@code false}
+     * @param otherShape the shape of the opponent.
+     * @return true - if the other shape was beaten by the current shape, otherwise - false.
      */
     public abstract boolean beats(@Nonnull Shape otherShape);
 
     /**
-     * Converts the string represented shape to its enum value
+     * Converts the string represented shape to its enum value.
      *
-     * @param shape string represented shape
-     * @return the enum constant
+     * @param shape string represented shape.
+     * @return the enum constant.
      * @throws IllegalArgumentException if the passed shape is null or it can't be matched.
      */
     public static Shape ofString(@Nonnull String shape)
