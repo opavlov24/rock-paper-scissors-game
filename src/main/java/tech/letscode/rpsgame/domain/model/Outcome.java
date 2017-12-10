@@ -5,9 +5,26 @@ package tech.letscode.rpsgame.domain.model;
  */
 public interface Outcome
 {
-    void firstPlayerWin();
+    /**
+     * Called when the first player wins
+     *
+     * @param firstPlayerChoice  choice of the first player
+     * @param secondPlayerChoice choice of the second player
+     */
+    void firstPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice);
 
-    void secondPlayerWin();
+    /**
+     * Called when the second player wins
+     *
+     * @param firstPlayerChoice  choice of the first player
+     * @param secondPlayerChoice choice of the second player
+     */
+    void secondPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice);
 
-    void isTied();
+    /**
+     * Called if both players chose the same shape
+     *
+     * @param choiceOfPlayers choice of the players
+     */
+    void isTied(Shape choiceOfPlayers);
 }

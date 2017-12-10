@@ -52,22 +52,23 @@ public class RpsApplication
         Game game = this.gameFactory.create(personPlayer, computerPlayer);
         game.play(new Outcome()
         {
+
             @Override
-            public void firstPlayerWin()
+            public void firstPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice)
             {
-                callback.personWin();
+                callback.personWin(secondPlayerChoice.toString());
             }
 
             @Override
-            public void secondPlayerWin()
+            public void secondPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice)
             {
-                callback.computerWin();
+                callback.computerWin(secondPlayerChoice.toString());
             }
 
             @Override
-            public void isTied()
+            public void isTied(Shape choiceOfPlayers)
             {
-                callback.isTied();
+                callback.isTied(choiceOfPlayers.toString());
             }
         });
     }
@@ -92,22 +93,23 @@ public class RpsApplication
             Game game = this.gameFactory.create(firstComputerPlayer, secondComputerPlayer);
             game.play(new Outcome()
             {
+
                 @Override
-                public void firstPlayerWin()
+                public void firstPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice)
                 {
                     someoneWon[0] = true;
-                    callback.firstComputerPlayerWin();
+                    callback.firstComputerPlayerWin(firstPlayerChoice.toString(), secondPlayerChoice.toString());
                 }
 
                 @Override
-                public void secondPlayerWin()
+                public void secondPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice)
                 {
                     someoneWon[0] = true;
-                    callback.secondComputerPlayerWin();
+                    callback.secondComputerPlayerWin(firstPlayerChoice.toString(), secondPlayerChoice.toString());
                 }
 
                 @Override
-                public void isTied()
+                public void isTied(Shape choiceOfPlayers)
                 {
                     //nop
                 }
@@ -115,4 +117,5 @@ public class RpsApplication
 
         } while (!someoneWon[0]);
     }
+
 }

@@ -97,21 +97,21 @@ public class GameConsole
             this.application.humanPlaysAgainstComputer(humanChoice, new HumanPlaysAgainstComputerCallback()
             {
                 @Override
-                public void personWin()
+                public void personWin(String choiceOfComputer)
                 {
-                    tell("You win!");
+                    tell("You win! The computer choice was " + choiceOfComputer);
                 }
 
                 @Override
-                public void computerWin()
+                public void computerWin(String choiceOfComputer)
                 {
-                    tell("You loose!");
+                    tell("You lose! The computer choice was " + choiceOfComputer);
                 }
 
                 @Override
-                public void isTied()
+                public void isTied(String choiceOfComputer)
                 {
-                    tell("No one wins!");
+                    tell("No one wins! You both chose " + choiceOfComputer);
                 }
             });
         } while (doYouWantToPlayAgain(scanner));
@@ -124,16 +124,27 @@ public class GameConsole
             tell("Nothing depends on you. Just sit and enjoy the game!");
             this.application.computerPlaysAgainstComputer(new ComputerPlaysAgainstComputerCallback()
             {
+
                 @Override
-                public void firstComputerPlayerWin()
+                public void firstComputerPlayerWin(String choiceOfFirstComputer, String choiceOfSecondComputer)
                 {
-                    tell("Computer player - 1 is win");
+                    tell(
+                            String.format(
+                                    "The first computer player wins. The first chose - %s, and the second - %s",
+                                    choiceOfFirstComputer, choiceOfSecondComputer
+                            )
+                    );
                 }
 
                 @Override
-                public void secondComputerPlayerWin()
+                public void secondComputerPlayerWin(String choiceOfFirstComputer, String choiceOfSecondComputer)
                 {
-                    tell("Computer player - 2 is win");
+                    tell(
+                            String.format(
+                                    "The second computer player wins. The first chose - %s, and the second - %s",
+                                    choiceOfFirstComputer, choiceOfSecondComputer
+                            )
+                    );
                 }
             });
         } while (doYouWantToPlayAgain(scanner));

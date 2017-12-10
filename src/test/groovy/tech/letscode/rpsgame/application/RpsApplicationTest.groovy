@@ -4,6 +4,7 @@ import spock.lang.Specification
 import tech.letscode.rpsgame.domain.model.Game
 import tech.letscode.rpsgame.domain.model.GameFactory
 import tech.letscode.rpsgame.domain.model.Outcome
+import tech.letscode.rpsgame.domain.model.Shape
 import tech.letscode.rpsgame.domain.model.player.Player
 
 /**
@@ -39,9 +40,9 @@ class RpsApplicationTest extends Specification
         application.humanPlaysAgainstComputer("rock", callback)
 
         then:
-        1 * callback.personWin()
-        0 * callback.computerWin()
-        0 * callback.isTied()
+        1 * callback.personWin(_)
+        0 * callback.computerWin(_)
+        0 * callback.isTied(_)
     }
 
     def "should call computerWon if secondPlayer method is called"()
@@ -54,9 +55,9 @@ class RpsApplicationTest extends Specification
         application.humanPlaysAgainstComputer("rock", callback)
 
         then:
-        0 * callback.personWin()
-        1 * callback.computerWin()
-        0 * callback.isTied()
+        0 * callback.personWin(_)
+        1 * callback.computerWin(_)
+        0 * callback.isTied(_)
     }
 
     def "should call isTied if isTied method is called"()
@@ -69,9 +70,9 @@ class RpsApplicationTest extends Specification
         application.humanPlaysAgainstComputer("rock", callback)
 
         then:
-        0 * callback.personWin()
-        0 * callback.computerWin()
-        1 * callback.isTied()
+        0 * callback.personWin(_)
+        0 * callback.computerWin(_)
+        1 * callback.isTied(_)
     }
 
     def "should throw IllegalArgumentException if callback is null (ComputerPlaysAgainstComputerCallback)"()
@@ -93,8 +94,8 @@ class RpsApplicationTest extends Specification
         application.computerPlaysAgainstComputer(callback)
 
         then:
-        1 * callback.firstComputerPlayerWin()
-        0 * callback.secondComputerPlayerWin()
+        1 * callback.firstComputerPlayerWin(_, _)
+        0 * callback.secondComputerPlayerWin(_, _)
     }
 
     def "should call secondComputerPlayerWon if secondPlayer is won"()
@@ -107,8 +108,8 @@ class RpsApplicationTest extends Specification
         application.computerPlaysAgainstComputer(callback)
 
         then:
-        0 * callback.firstComputerPlayerWin()
-        1 * callback.secondComputerPlayerWin()
+        0 * callback.firstComputerPlayerWin(_, _)
+        1 * callback.secondComputerPlayerWin(_, _)
     }
 
     def "should repeat game while someone win"()
@@ -124,8 +125,8 @@ class RpsApplicationTest extends Specification
         application.computerPlaysAgainstComputer(callback)
 
         then:
-        1 * callback.firstComputerPlayerWin()
-        0 * callback.secondComputerPlayerWin()
+        1 * callback.firstComputerPlayerWin(_, _)
+        0 * callback.secondComputerPlayerWin(_, _)
     }
 
     def createGameFactoryThatReturnGame(Game game)
@@ -142,7 +143,7 @@ class RpsApplicationTest extends Specification
         @Override
         void play(Outcome outcome)
         {
-            outcome.firstPlayerWin()
+            outcome.firstPlayerWin(Shape.ROCK, Shape.SCISSORS)
         }
     }
 
@@ -152,7 +153,7 @@ class RpsApplicationTest extends Specification
         @Override
         void play(Outcome outcome)
         {
-            outcome.secondPlayerWin()
+            outcome.secondPlayerWin(Shape.ROCK, Shape.PAPER)
         }
     }
 
@@ -162,7 +163,7 @@ class RpsApplicationTest extends Specification
         @Override
         void play(Outcome outcome)
         {
-            outcome.isTied()
+            outcome.isTied(Shape.ROCK)
         }
     }
 }

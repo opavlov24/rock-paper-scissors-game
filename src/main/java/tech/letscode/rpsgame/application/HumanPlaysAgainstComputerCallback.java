@@ -5,9 +5,24 @@ package tech.letscode.rpsgame.application;
  */
 public interface HumanPlaysAgainstComputerCallback
 {
-    void personWin();
+    /**
+     * Called when the human player wins
+     *
+     * @param choiceOfComputer choice of the computer player
+     */
+    void personWin(String choiceOfComputer);
 
-    void computerWin();
+    /**
+     * Called when the computer player wins
+     *
+     * @param choiceOfComputer choice of the computer player
+     */
+    void computerWin(String choiceOfComputer);
 
-    void isTied();
+    /**
+     * Called when no one wins, because both players chose the same shape.
+     *
+     * @param choiceOfComputer choice of the computer player
+     */
+    void isTied(String choiceOfComputer);
 }

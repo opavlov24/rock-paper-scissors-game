@@ -45,13 +45,13 @@ public class DefaultGame implements Game
 
         if (firstPlayerChoice.beats(secondPlayerChoice))
         {
-            outcome.firstPlayerWin();
+            outcome.firstPlayerWin(firstPlayerChoice, secondPlayerChoice);
         } else if (secondPlayerChoice.beats(firstPlayerChoice))
         {
-            outcome.secondPlayerWin();
+            outcome.secondPlayerWin(firstPlayerChoice, secondPlayerChoice);
         } else
         {
-            outcome.isTied();
+            outcome.isTied(firstPlayerChoice);
         }
     }
 }
