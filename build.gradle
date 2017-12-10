@@ -10,7 +10,6 @@ repositories {
 mainClassName = "tech.letscode.rpsgame.RpsGame"
 
 dependencies {
-    compileOnly 'org.projectlombok:lombok:1.16.+'
     compileOnly 'com.google.code.findbugs:jsr305:3.+'
 
     testCompile 'org.codehaus.groovy:groovy-all:2.4.13'
