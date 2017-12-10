@@ -10,14 +10,14 @@ public interface HumanPlaysAgainstComputerCallback
      *
      * @param choiceOfComputer choice of the computer player
      */
-    void personWin(String choiceOfComputer);
+    void humanWins(String choiceOfComputer);
 
     /**
      * Called when the computer player wins
      *
      * @param choiceOfComputer choice of the computer player
      */
-    void computerWin(String choiceOfComputer);
+    void computerWins(String choiceOfComputer);
 
     /**
      * Called when no one wins, because both players chose the same shape.

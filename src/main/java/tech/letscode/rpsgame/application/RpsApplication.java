@@ -54,15 +54,15 @@ public class RpsApplication
         {
 
             @Override
-            public void firstPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice)
+            public void firstPlayerWins(Shape firstPlayerChoice, Shape secondPlayerChoice)
             {
-                callback.personWin(secondPlayerChoice.toString());
+                callback.humanWins(secondPlayerChoice.toString());
             }
 
             @Override
-            public void secondPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice)
+            public void secondPlayerWins(Shape firstPlayerChoice, Shape secondPlayerChoice)
             {
-                callback.computerWin(secondPlayerChoice.toString());
+                callback.computerWins(secondPlayerChoice.toString());
             }
 
             @Override
@@ -95,17 +95,17 @@ public class RpsApplication
             {
 
                 @Override
-                public void firstPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice)
+                public void firstPlayerWins(Shape firstPlayerChoice, Shape secondPlayerChoice)
                 {
                     someoneWon[0] = true;
-                    callback.firstComputerPlayerWin(firstPlayerChoice.toString(), secondPlayerChoice.toString());
+                    callback.firstComputerPlayerWins(firstPlayerChoice.toString(), secondPlayerChoice.toString());
                 }
 
                 @Override
-                public void secondPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice)
+                public void secondPlayerWins(Shape firstPlayerChoice, Shape secondPlayerChoice)
                 {
                     someoneWon[0] = true;
-                    callback.secondComputerPlayerWin(firstPlayerChoice.toString(), secondPlayerChoice.toString());
+                    callback.secondComputerPlayerWins(firstPlayerChoice.toString(), secondPlayerChoice.toString());
                 }
 
                 @Override

@@ -11,7 +11,7 @@ public interface ComputerPlaysAgainstComputerCallback
      * @param choiceOfFirstComputer  choice of the first computer player
      * @param choiceOfSecondComputer choice of the second computer player
      */
-    void firstComputerPlayerWin(String choiceOfFirstComputer, String choiceOfSecondComputer);
+    void firstComputerPlayerWins(String choiceOfFirstComputer, String choiceOfSecondComputer);
 
     /**
      * Called when the second computer player wins
@@ -19,5 +19,5 @@ public interface ComputerPlaysAgainstComputerCallback
      * @param choiceOfFirstComputer  choice of the first computer player
      * @param choiceOfSecondComputer choice of the second computer player
      */
-    void secondComputerPlayerWin(String choiceOfFirstComputer, String choiceOfSecondComputer);
+    void secondComputerPlayerWins(String choiceOfFirstComputer, String choiceOfSecondComputer);
 }

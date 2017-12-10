@@ -97,13 +97,13 @@ public class GameConsole
             this.application.humanPlaysAgainstComputer(humanChoice, new HumanPlaysAgainstComputerCallback()
             {
                 @Override
-                public void personWin(String choiceOfComputer)
+                public void humanWins(String choiceOfComputer)
                 {
                     tell("You win! The computer choice was " + choiceOfComputer);
                 }
 
                 @Override
-                public void computerWin(String choiceOfComputer)
+                public void computerWins(String choiceOfComputer)
                 {
                     tell("You lose! The computer choice was " + choiceOfComputer);
                 }
@@ -126,7 +126,7 @@ public class GameConsole
             {
 
                 @Override
-                public void firstComputerPlayerWin(String choiceOfFirstComputer, String choiceOfSecondComputer)
+                public void firstComputerPlayerWins(String choiceOfFirstComputer, String choiceOfSecondComputer)
                 {
                     tell(
                             String.format(
@@ -137,7 +137,7 @@ public class GameConsole
                 }
 
                 @Override
-                public void secondComputerPlayerWin(String choiceOfFirstComputer, String choiceOfSecondComputer)
+                public void secondComputerPlayerWins(String choiceOfFirstComputer, String choiceOfSecondComputer)
                 {
                     tell(
                             String.format(

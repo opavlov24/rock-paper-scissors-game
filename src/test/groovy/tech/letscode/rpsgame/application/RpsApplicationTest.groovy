@@ -40,8 +40,8 @@ class RpsApplicationTest extends Specification
         application.humanPlaysAgainstComputer("rock", callback)
 
         then:
-        1 * callback.personWin(_)
-        0 * callback.computerWin(_)
+        1 * callback.humanWins(_)
+        0 * callback.computerWins(_)
         0 * callback.isTied(_)
     }
 
@@ -55,8 +55,8 @@ class RpsApplicationTest extends Specification
         application.humanPlaysAgainstComputer("rock", callback)
 
         then:
-        0 * callback.personWin(_)
-        1 * callback.computerWin(_)
+        0 * callback.humanWins(_)
+        1 * callback.computerWins(_)
         0 * callback.isTied(_)
     }
 
@@ -70,8 +70,8 @@ class RpsApplicationTest extends Specification
         application.humanPlaysAgainstComputer("rock", callback)
 
         then:
-        0 * callback.personWin(_)
-        0 * callback.computerWin(_)
+        0 * callback.humanWins(_)
+        0 * callback.computerWins(_)
         1 * callback.isTied(_)
     }
 
@@ -94,8 +94,8 @@ class RpsApplicationTest extends Specification
         application.computerPlaysAgainstComputer(callback)
 
         then:
-        1 * callback.firstComputerPlayerWin(_, _)
-        0 * callback.secondComputerPlayerWin(_, _)
+        1 * callback.firstComputerPlayerWins(_, _)
+        0 * callback.secondComputerPlayerWins(_, _)
     }
 
     def "should call secondComputerPlayerWon if secondPlayer is won"()
@@ -108,8 +108,8 @@ class RpsApplicationTest extends Specification
         application.computerPlaysAgainstComputer(callback)
 
         then:
-        0 * callback.firstComputerPlayerWin(_, _)
-        1 * callback.secondComputerPlayerWin(_, _)
+        0 * callback.firstComputerPlayerWins(_, _)
+        1 * callback.secondComputerPlayerWins(_, _)
     }
 
     def "should repeat game while someone win"()
@@ -125,8 +125,8 @@ class RpsApplicationTest extends Specification
         application.computerPlaysAgainstComputer(callback)
 
         then:
-        1 * callback.firstComputerPlayerWin(_, _)
-        0 * callback.secondComputerPlayerWin(_, _)
+        1 * callback.firstComputerPlayerWins(_, _)
+        0 * callback.secondComputerPlayerWins(_, _)
     }
 
     def createGameFactoryThatReturnGame(Game game)
@@ -143,7 +143,7 @@ class RpsApplicationTest extends Specification
         @Override
         void play(Outcome outcome)
         {
-            outcome.firstPlayerWin(Shape.ROCK, Shape.SCISSORS)
+            outcome.firstPlayerWins(Shape.ROCK, Shape.SCISSORS)
         }
     }
 
@@ -153,7 +153,7 @@ class RpsApplicationTest extends Specification
         @Override
         void play(Outcome outcome)
         {
-            outcome.secondPlayerWin(Shape.ROCK, Shape.PAPER)
+            outcome.secondPlayerWins(Shape.ROCK, Shape.PAPER)
         }
     }
 

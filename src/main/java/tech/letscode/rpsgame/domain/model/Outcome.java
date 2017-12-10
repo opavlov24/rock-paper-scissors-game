@@ -11,7 +11,7 @@ public interface Outcome
      * @param firstPlayerChoice  choice of the first player
      * @param secondPlayerChoice choice of the second player
      */
-    void firstPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice);
+    void firstPlayerWins(Shape firstPlayerChoice, Shape secondPlayerChoice);
 
     /**
      * Called when the second player wins
@@ -19,7 +19,7 @@ public interface Outcome
      * @param firstPlayerChoice  choice of the first player
      * @param secondPlayerChoice choice of the second player
      */
-    void secondPlayerWin(Shape firstPlayerChoice, Shape secondPlayerChoice);
+    void secondPlayerWins(Shape firstPlayerChoice, Shape secondPlayerChoice);
 
     /**
      * Called if both players chose the same shape
