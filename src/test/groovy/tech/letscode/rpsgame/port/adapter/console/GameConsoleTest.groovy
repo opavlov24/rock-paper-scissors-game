@@ -29,7 +29,7 @@ class GameConsoleTest extends Specification
 
     @Unroll
     @Timeout(value = 1, unit = TimeUnit.SECONDS)
-    def "should run humanVsComputer version and the human choose #shape"()
+    def "should run humanVsComputer version and the human choose #choiceOfHuman"()
     {
         given:
         def application = Mock(RpsApplication)
